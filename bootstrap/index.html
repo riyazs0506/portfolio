@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammed Riyaz | Full Stack Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<head>
+
+<style>
+    .nav-links a.active {
+      background-color: #f3e7c5;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+    
+      const navLinks = document.querySelectorAll('.nav-links a');
+      
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+
+          navLinks.forEach(navLink => {
+            navLink.classList.remove('active');
+          });
+          
+          this.classList.add('active');
+          
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+      
+
+      function setActiveLink() {
+        const fromTop = window.scrollY + 100;
+        
+        navLinks.forEach(link => {
+          const section = document.querySelector(link.getAttribute('href'));
+          
+          if (
+            section.offsetTop <= fromTop &&
+            section.offsetTop + section.offsetHeight > fromTop
+          ) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+      
+      setActiveLink();
+      window.addEventListener('scroll', setActiveLink);
+    });
+
+  </script>
+</body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">MOHAMMED RIYAZ<span> S</span></a>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+  </nav>
+
+
+  <section id="home" class="home-section">
+    <div class="container">
+      <div class="home-content">
+        <div class="home-text">
+          <h3>Hi, I am </h3>
+          <h1>Mohammed Riyaz S</h1>
+          <h2>I am a Full Stack Developer.<span class="typed-text"></span></h2>
+          <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> mohammedriyazs0506@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +91 9994140525</p>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/riyazs0506"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/mohammed-riyaz-s-173a94292/"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+          <a href="/mohammedriyazs resume (1).pdf" download class="btn">Download CV <i class="fas fa-download"></i></a>
+        </div>
+        <div class="home-image">
+          <img src="/IMG-20250301-WA0079.jpg" alt="Mukesh G E">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-image">
+          <img src="/IMG-20250301-WA0079.jpg" alt="Mukesh G E">
+        </div>
+        <div class="about-text">
+          <p>I’m Mohammed Riyaz, an inquisitive and driven undergraduate pursuing a degree in Computer Science and Design at Kongu Engineering College.</p>
+          <br><p>As a Full Stack Developer, I specialize in building end-to-end web applications, with robust expertise across both front-end and back-end stacks. My development workflow spans from designing responsive, user-centric interfaces to architecting scalable server-side systems and integrating secure, optimized databases.</p>
+          <p>My technical stack :</p>
+          <ul>
+            <li>
+              Front-end: HTML5, CSS3, JavaScript (ES6+), React.js
+            </li>
+            <br>
+            <li>
+              Back-end: Node.js, Express.js, Spring Boot
+            </li>
+            <br>
+            <li>
+              Databases: MongoDB, MySQL
+            </li>
+            <br>
+            <li>
+              Additional Skills: RESTful API development, version control with Git, and deployment using cloud platforms
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <h2 class="section-title">My Skills</h2>
+      <div class="skills-grid">
+        <button class="skill-btn">HTML</button>
+        <button class="skill-btn">CSS</button>
+        <button class="skill-btn">JavaScript</button>
+        <button class="skill-btn">Python</button>
+        <button class="skill-btn">C</button>
+        <button class="skill-btn">Java</button>
+        <button class="skill-btn">UI/UX</button>
+        <button class="skill-btn">Figma</button>
+        <button class="skill-btn">Framer</button>
+        <button class="skill-btn">SpringBoot</button>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="projects" class="projects-section">
+    <div class="container">
+      <h2 class="section-title">My Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="bootstrap\recipe.jpg" alt="Recipe Management System">
+          </div>
+          <div class="project-content">
+            <h3>Recipe Management System</h3>
+            <p>A comprehensive system for managing the recipe list and foods</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Contact Info  </h3>
+          <p><i class="fas fa-envelope"></i> mohammedriyazs0506@gmail.com</p>
+          <p><i class="fas fa-phone"></i> +91 9994140525</p>
+          <p><i class="fas fa-map-marker-alt"></i> Erode, Tamil Nadu, India</p>
+          <div class="social-links">
+            <a href="https://github.com/riyazs0506"><i class="fab fa-github" style="margin-left: 15px;"></i></a>
+            <a href="https://www.linkedin.com/in/mohammed-riyaz-s-173a94292/"><i class="fab fa-linkedin" style="margin-left: 15px;"></i></a>
+            <a href="#"><i class="fab fa-instagram" style="margin-left: 15px;"></i></a>
+          </div>
+        </div>
+        <form class="contact-form">
+          <div class="form-group">
+            <input type="text" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; All rights reserved.     2023 mohammedriyazs</p>
+    </div>
+  </footer>
+
+
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

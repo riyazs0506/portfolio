@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammed Riyaz | Full Stack Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+<style>
+    .nav-links a.active {
+      background-color: rgba(67, 90, 221, 0.957);
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+    
+      const navLinks = document.querySelectorAll('.nav-links a');
+      
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+
+          navLinks.forEach(navLink => {
+            navLink.classList.remove('active');
+          });
+          
+          this.classList.add('active');
+          
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+      
+
+      function setActiveLink() {
+        const fromTop = window.scrollY + 100;
+        
+        navLinks.forEach(link => {
+          const section = document.querySelector(link.getAttribute('href'));
+          
+          if (
+            section.offsetTop <= fromTop &&
+            section.offsetTop + section.offsetHeight > fromTop
+          ) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+      
+      setActiveLink();
+      window.addEventListener('scroll', setActiveLink);
+    });
+
+  </script>
+<nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">MOHAMMED RIYAZ<span> S</span></a>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="/bootstrap/certificates.html">Certificates</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+  </nav>
+  <section id="certificates" class="certificates-section">
+    <div class="container">
+      <h2 class="section-title">My Certificates</h2>
+      <div class="certificate-grid">
+        <div class="certificate-card" onclick="openModal('NPTEL.png')">
+          <img src="NPTEL.png" alt="NPTEL Certificate">
+          <p>NPTEL Certificate</p>
+          <a href="#" class="btn">View</a>
+        </div>
+      </div>
+    </div>
+  </section>
+     <footer class="footer">
+    <div class="container">
+      <p>&copy; All rights reserved. 2023 mohammedriyazs.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
